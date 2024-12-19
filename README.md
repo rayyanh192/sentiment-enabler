@@ -119,18 +119,6 @@ python -m http.server 8000
 ```
 Visit the frontend at: http://localhost:8000
 
-### Folder Structure
-
-sentiment-enabler/
-├── backend/
-│   ├── app.py                # Flask backend
-│   ├── requirements.txt      # Python dependencies
-├── frontend/
-│   ├── index.html            # Frontend HTML
-│   ├── style.css             # Frontend styles
-│   ├── script.js             # Frontend JavaScript
-└── README.md                 # Project documentation
-
 ### Future Features
 	•	Implement real web scraping for articles using libraries like BeautifulSoup.
 	•	Add database support to store user queries and results.
@@ -160,6 +148,6 @@ git push origin feature-branch
 This project is licensed under the MIT License. See LICENSE for more information.
 
 ### Contact
-•	Created by: Rayyan Hussain
-•	Email: rayyanhussain2024@gmail.com
-•	GitHub: https://github.com/rayyanh192
+- Created by: Rayyan Hussain
+- Email: rayyanhussain2024@gmail.com
+- GitHub: https://github.com/rayyanh192
