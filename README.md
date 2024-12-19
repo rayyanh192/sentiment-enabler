@@ -101,27 +101,27 @@ Sentiment Enabler is a web application that helps users explore controversial to
 ```bash
 git clone https://github.com/rayyanh192/sentiment-enabler.git
 cd sentiment-enabler
-
-2. Set Up the Backend
+```
+### 2. Set Up the Backend
 
 Install Python Dependencies
-
+```bash
 pip install -r requirements.txt
-
+```
 Start the Flask Server
-
+```bash
 python app.py
-
-3. Serve the Frontend
+```
+### 3. Serve the Frontend
 
 Use Python’s HTTP server to serve the frontend:
-
+```bash
 cd frontend
 python -m http.server 8000
-
+```
 Visit the frontend at: http://localhost:8000
 
-Folder Structure
+### Folder Structure
 
 sentiment-enabler/
 ├── backend/
@@ -133,35 +133,35 @@ sentiment-enabler/
 │   ├── script.js             # Frontend JavaScript
 └── README.md                 # Project documentation
 
-Future Features
+### Future Features
 	•	Implement real web scraping for articles using libraries like BeautifulSoup.
 	•	Add database support to store user queries and results.
 	•	Integrate more advanced AI models for summarization (e.g., OpenAI GPT).
 
-Contributing
+### Contributing
 	1.	Fork the repository.
 	2.	Create a new branch:
-
+```bash
 git checkout -b feature-branch
-
+```
 
 	3.	Commit your changes:
-
+```bash
 git commit -m "Add feature"
-
+```
 
 	4.	Push to your branch:
-
+```bash
 git push origin feature-branch
-
+```
 
 	5.	Open a pull request.
 
-License
+### License
 
 This project is licensed under the MIT License. See LICENSE for more information.
 
-Contact
+### Contact
 	•	Created by: Rayyan Hussain
 	•	Email: rayyanhussain2024@gmail.com
 	•	GitHub: https://github.com/rayyanh192
