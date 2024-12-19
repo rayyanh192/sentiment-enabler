@@ -1,5 +1,3 @@
-Here is the entire README text, all in one place, with everything included. You can copy and paste it directly into your README file:
-
 # Sentiment Enabler
 
 Sentiment Enabler is a web application that helps users explore controversial topics by providing insights into different perspectives. Users can input a topic, and the app returns keywords, relevant articles, sentiment analysis, and a summary of the topic from opposing viewpoints (e.g., pro-choice vs. pro-life).
@@ -139,29 +137,29 @@ sentiment-enabler/
 	•	Integrate more advanced AI models for summarization (e.g., OpenAI GPT).
 
 ### Contributing
-	1.	Fork the repository.
-	2.	Create a new branch:
+1.	Fork the repository.
+2.	Create a new branch:
 ```bash
 git checkout -b feature-branch
 ```
 
-	3.	Commit your changes:
+3.	Commit your changes:
 ```bash
 git commit -m "Add feature"
 ```
 
-	4.	Push to your branch:
+4.	Push to your branch:
 ```bash
 git push origin feature-branch
 ```
 
-	5.	Open a pull request.
+5.	Open a pull request.
 
 ### License
 
 This project is licensed under the MIT License. See LICENSE for more information.
 
 ### Contact
-	•	Created by: Rayyan Hussain
-	•	Email: rayyanhussain2024@gmail.com
-	•	GitHub: https://github.com/rayyanh192
+•	Created by: Rayyan Hussain
+•	Email: rayyanhussain2024@gmail.com
+•	GitHub: https://github.com/rayyanh192
