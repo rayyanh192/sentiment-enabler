@@ -120,9 +120,9 @@ python -m http.server 8000
 Visit the frontend at: http://localhost:8000
 
 ### Future Features
-	•	Implement real web scraping for articles using libraries like BeautifulSoup.
-	•	Add database support to store user queries and results.
-	•	Integrate more advanced AI models for summarization (e.g., OpenAI GPT).
+- Implement real web scraping for articles using libraries like BeautifulSoup.
+- Add database support to store user queries and results.
+- Integrate more advanced AI models for summarization (e.g., OpenAI GPT).
 
 ### Contributing
 1.	Fork the repository.
