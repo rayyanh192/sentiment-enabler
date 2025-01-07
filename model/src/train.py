@@ -2,7 +2,7 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration, Trainer, Train
 from preprocess import load_data, split_data
 
 # Load and preprocess data
-data_path = "../data/compiled_topics.json"
+data_path = "./src/compiled_topics.json"
 inputs, targets = load_data(data_path)
 train_inputs, val_inputs, train_targets, val_targets = split_data(inputs, targets)
 
@@ -59,4 +59,5 @@ trainer = Trainer(
 
 # Train
 trainer.train()
-model.save_pretrained("../models/keyword_classifier")
+model.save_pretrained("./models/keyword_classifier")
+tokenizer.save_pretrained("./models/keyword_classifier")
