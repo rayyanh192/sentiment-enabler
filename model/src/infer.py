@@ -1,4 +1,5 @@
 from transformers import T5Tokenizer, T5ForConditionalGeneration
+import re
 
 def generate_keywords(topic, side, model_path="./models/keyword_classifier"):
     """Generate keywords for a given topic and side."""
@@ -18,10 +19,21 @@ def generate_keywords(topic, side, model_path="./models/keyword_classifier"):
         early_stopping=True       # Stop when an end condition is met
     )
 
-    keywords = [tokenizer.decode(output, skip_special_tokens=True).strip() for output in outputs]
-    return keywords
+    # Decode and clean keywords
+    raw_keywords = [tokenizer.decode(output, skip_special_tokens=True).strip() for output in outputs]
+
+    # Compile a regex pattern to match topic words (case-insensitive, word boundaries)
+    topic_pattern = re.compile(rf'\b{topic}\b', re.IGNORECASE)
+
+    # Filter out keywords containing the topic word
+    filtered_keywords = [
+        keyword for keyword in raw_keywords 
+        if not topic_pattern.search(keyword)
+    ]
+
+    return filtered_keywords
 
 # Example usage
 topic = "climate change"
-side = "anti-climate action"
+side = "pro-climate action"
 print(generate_keywords(topic, side))
