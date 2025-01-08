@@ -34,7 +34,7 @@ def search_articles(keywords):
     
     return results
 
-dummy_keywords = ["climate change fake", "renewable energy initiatives"]
+dummy_keywords = ["nuclear energy good", "nuclear energy for desalination"]
 articles = search_articles(dummy_keywords)
 for article in articles:
     print(f"Title: {article['title']}")
