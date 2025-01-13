@@ -1,6 +1,13 @@
 import requests
 from dotenv import load_dotenv
 import os
+from flask import Flask, request, jsonify
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from model.src.infer import generate_keywords
+
+app = Flask(__name__)
 
 load_dotenv()
 
@@ -33,10 +40,26 @@ def search_articles(keywords):
             print(f"Error: {response.status_code}, {response.text}")
     
     return results
-
+'''
 dummy_keywords = ["nuclear energy good", "nuclear energy for desalination"]
 articles = search_articles(dummy_keywords)
 for article in articles:
     print(f"Title: {article['title']}")
     print(f"Link: {article['link']}")
     print(f"Snippet: {article['snippet']}\n")
+'''
+
+@app.route('/generate', methods=['POST'])
+def generate():
+    data = request.json
+    topic = data.get("topic")
+    side = data.get("side")
+    if not topic or not side:
+        return jsonify({"error": "Missing topic or side"}), 400
+    
+    keywords = generate_keywords(topic, side)
+    articles = search_articles(keywords)
+    return jsonify({"keywords": keywords, "articles": articles})
+
+if __name__ == "__main__":
+    app.run(debug=True)
