@@ -1,5 +1,6 @@
 from transformers import T5Tokenizer, T5ForConditionalGeneration, Trainer, TrainingArguments
 from preprocess import load_data, split_data
+# terminal must be in model directory to run properly
 
 # Load and preprocess data
 data_path = "./src/compiled_topics.json"
@@ -38,7 +39,7 @@ val_dataset = KeywordDataset(val_encodings, val_labels)
 
 # Training arguments
 training_args = TrainingArguments(
-    output_dir="../models/keyword_classifier",
+    output_dir="./models/keyword_classifier",
     evaluation_strategy="epoch",
     learning_rate=2e-5,
     per_device_train_batch_size=8,
@@ -46,7 +47,7 @@ training_args = TrainingArguments(
     num_train_epochs=5,
     weight_decay=0.01,
     save_total_limit=2,
-    logging_dir="../models/logs",
+    logging_dir="./models/logs",
 )
 
 # Trainer

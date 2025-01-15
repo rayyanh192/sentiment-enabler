@@ -2,11 +2,12 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 import re
 import os
 
+# terminal must be in model directory to run properly
 def generate_keywords(topic, side):
     """Generate keywords for a given topic and side."""
     # Dynamically resolve the absolute path to the model directory
     current_dir = os.path.dirname(__file__)  # Directory of this file (infer.py)
-    model_path = os.path.abspath(os.path.join(current_dir, "../../models/keyword_classifier"))
+    model_path = os.path.abspath(os.path.join(current_dir, "../../model/models/keyword_classifier"))
 
     tokenizer = T5Tokenizer.from_pretrained(model_path)
     model = T5ForConditionalGeneration.from_pretrained(model_path)
