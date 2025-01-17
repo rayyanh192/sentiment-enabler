@@ -1,10 +1,9 @@
 document.getElementById('input-form').addEventListener('submit', async function (event) {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault();
   
     const topic = document.getElementById('topic').value;
     const side = document.getElementById('side').value;
   
-    // Clear previous results
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = 'Loading...';
   
