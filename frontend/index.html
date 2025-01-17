@@ -1,89 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentiment Enabler</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentiment Enabler</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Sentiment Enabler</h1>
+  <h1>Sentiment Enabler</h1>
+  <form id="input-form">
+    <label for="topic">Topic:</label>
+    <input type="text" id="topic" name="topic" required>
+    
+    <label for="side">Side:</label>
+    <input type="text" id="side" name="side" required>
+    
+    <button type="submit">Generate Articles</button>
+  </form>
 
-    <div>
-        <label for="topic">Enter a Topic:</label>
-        <input type="text" id="topic" placeholder="e.g., abortion">
-        <button onclick="analyzeTopic()">Submit</button>
-    </div>
-
-    <div id="output">
-        <!-- Results will be displayed here -->
-    </div>
-
-    <script>
-        async function analyzeTopic() {
-            const topic = document.getElementById('topic').value;
-            const outputDiv = document.getElementById('output');
-
-            outputDiv.innerHTML = "<p>Processing...</p>";
-
-            try {
-                // Step 1: Call /keywords endpoint
-                const keywordsRes = await fetch('http://127.0.0.1:5000/keywords', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ topic })
-                });
-                const keywordsData = await keywordsRes.json();
-                const keywords = keywordsData.keywords;
-
-                // Step 2: Call /scrape endpoint
-                const scrapeRes = await fetch('http://127.0.0.1:5000/scrape', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ keywords })
-                });
-                const articlesData = await scrapeRes.json();
-                const articles = articlesData.articles;
-
-                // Step 3: Call /analyze endpoint
-                const analyzeRes = await fetch('http://127.0.0.1:5000/analyze', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ articles })
-                });
-                const sentimentData = await analyzeRes.json();
-
-                // Step 4: Call /summary endpoint
-                const summaryRes = await fetch('http://127.0.0.1:5000/summary', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ articles })
-                });
-                const summaryData = await summaryRes.json();
-
-                // Display Results
-                outputDiv.innerHTML = `
-                    <h2>Keywords:</h2>
-                    <p>${keywords.join(', ')}</p>
-
-                    <h2>Articles:</h2>
-                    <ul>
-                        ${articles.map(a => `<li><a href="${a.url}" target="_blank">${a.title}</a></li>`).join('')}
-                    </ul>
-
-                    <h2>Sentiments:</h2>
-                    <ul>
-                        ${sentimentData.sentiments.map(s => `<li>${s.title}: ${s.sentiment}</li>`).join('')}
-                    </ul>
-
-                    <h2>Summary:</h2>
-                    <p>${summaryData.summary}</p>
-                `;
-            } catch (error) {
-                outputDiv.innerHTML = `<p>Error: ${error.message}</p>`;
-                console.error(error);
-            }
-        }
-    </script>
+  <h2>Results</h2>
+  <div id="results"></div>
 </body>
 </html>

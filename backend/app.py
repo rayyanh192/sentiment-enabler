@@ -2,12 +2,14 @@ import requests
 from dotenv import load_dotenv
 import os
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from model.src.infer import generate_keywords
 
 app = Flask(__name__)
+CORS(app)
 
 load_dotenv()
 
