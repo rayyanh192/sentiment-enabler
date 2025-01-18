@@ -7,5 +7,4 @@ def save_results(results, output_path):
 
 def calculate_metrics(predictions, references):
     """Evaluate the model's performance."""
-    # Example: Use BLEU or ROUGE scores for text generation
     pass
