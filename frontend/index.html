@@ -6,20 +6,33 @@
   <title>Sentiment Enabler</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+  <style>
+    #results {
+      display: flex;
+      justify-content: space-between;
+    }
+    .results-column {
+      width: 45%;
+    }
+  </style>
 </head>
 <body>
   <h1>Sentiment Enabler</h1>
   <form id="input-form">
     <label for="topic">Topic:</label>
     <input type="text" id="topic" name="topic" required>
-    
-    <label for="side">Side:</label>
-    <input type="text" id="side" name="side" required>
-    
     <button type="submit">Generate Articles</button>
   </form>
 
-  <h2>Results</h2>
-  <div id="results"></div>
+  <div id="results">
+    <div class="results-column">
+      <h2>Pro Articles</h2>
+      <div id="pro-results"></div>
+    </div>
+    <div class="results-column">
+      <h2>Anti Articles</h2>
+      <div id="anti-results"></div>
+    </div>
+  </div>
 </body>
 </html>
